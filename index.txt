@@ -1,0 +1,29 @@
+def analyze_sentence(sentence):
+    # Initialize counters
+    length_counter = 0
+    word_counter = 0
+    vowel_counter = 0
+
+    # Iterate through each character in the sentence
+    for char in sentence:
+        # Increment length counter for each character
+        length_counter += 1
+
+        # Check if the character is a letter and not a space
+        if char.isalpha():
+            # Increment word counter when a new word starts
+            if length_counter == 1 or sentence[length_counter - 2] == ' ':
+                word_counter += 1
+
+            # Check if the character is a vowel
+            if char.lower() in {'a', 'e', 'i', 'o', 'u'}:
+                vowel_counter += 1
+
+    # Output the results
+    print(f"Length of the sentence: {length_counter}")
+    print(f"Number of words in the sentence: {word_counter}")
+    print(f"Number of vowels in the sentence: {vowel_counter}")
+
+# Example usage:
+sentence = "This is an example sentence."
+analyze_sentence(sentence)
